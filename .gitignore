@@ -1,3 +1,5 @@
 debug/
 nbproject/
+build/
+dist/
 Makefile
