@@ -13,6 +13,8 @@ char b = 48;
 char c = 48;
 char d = 48;
 
+int contador = 1;
+
 int variable = 0;
 
 void printNumber(int data) {
@@ -132,19 +134,19 @@ void main() {
 
     while (1) {
 
-//        for (int i = 0; i <= 170; i++) {
-//            switch (i) {
-//                case 85: analogWrite(_PC1, 85);
-//                    __delay_ms(500);
-//                    break;
-//                case 128: analogWrite(_PC1, 128);
-//                    __delay_ms(500);
-//                    break;
-//                case 170: analogWrite(_PC1, 170);
-//                    __delay_ms(500);
-//                    break;
-//            }
-//        }
+        //        for (int i = 0; i <= 170; i++) {
+        //            switch (i) {
+        //                case 85: analogWrite(_PC1, 85);
+        //                    __delay_ms(500);
+        //                    break;
+        //                case 128: analogWrite(_PC1, 128);
+        //                    __delay_ms(500);
+        //                    break;
+        //                case 170: analogWrite(_PC1, 170);
+        //                    __delay_ms(500);
+        //                    break;
+        //            }
+        //        }
     }
 
 }
@@ -162,13 +164,31 @@ void ONbuttonA_pressed() {
         buttonApressedcounter = 0;
         buttonApressedcounter2 = 0;
         //your code here
-//        if (variable <= 254) {
-//            variable += 15;
-//            analogWrite(_PC1, variable);
-//        }
+        int velocidad1 = 100;
+        int velocidad2 = 150;
+        int velocidad3 = 254;
+        buzzer(2000, 100);
 
-        int velocidad1 = 64;
-        analogWrite(_PC2, velocidad1);
+
+        //        if (variable <= 254) {
+        //            variable += 15;
+        //            analogWrite(_PC1, variable);
+        //        }
+            switch (contador) {
+                case 1: analogWrite(_PC2, velocidad1);
+                    contador++;
+                    break;
+                case 2: analogWrite(_PC2, velocidad2);
+                    contador++;
+                    break;
+                case 3: analogWrite(_PC2, velocidad3);
+                    contador++;
+                    break;
+                case 4: analogWrite(_PC2, 1);
+                    contador = 1;
+                    break;
+            }
+        
 
     }
 
@@ -205,10 +225,10 @@ void ONbuttonB_pressed() {
         buttonBpressedcounter = 0;
         buttonBpressedcounter2 = 0;
         //your code here
-//        if (variable >= 15) {
-//            variable -= 15;
-//            analogWrite(_PC1, variable);
-//        }
+        //        if (variable >= 15) {
+        //            variable -= 15;
+        //            analogWrite(_PC1, variable);
+        //        }
         int velocidad2 = 190;
         analogWrite(_PC2, velocidad2);
 
