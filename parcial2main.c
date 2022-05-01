@@ -14,7 +14,7 @@ char c = 48;
 char d = 48;
 
 int contadorA = 1;
-int contadorB = 5;
+int contadorB = 1;
 
 int variable = 0;
 
@@ -116,10 +116,10 @@ void main() {
     system_inicializacion();
     serialinit();
 
-//    TRISCbits.TRISC2 = 0; //RC2 como salida
-//    
-//    BUZZER_CONF = OUTPUT;
-//    BUZZER_WRITE = 0;
+        TRISCbits.TRISC2 = 0; //RC2 como salida
+        
+        BUZZER_CONF = OUTPUT;
+        BUZZER_WRITE = 0;
 
     //    if (buttonA && buttonB) programa3();
     //    if (buttonA) programa1();
@@ -242,19 +242,39 @@ void ONbuttonB_pressed() {
         //            analogWrite(_PC1, variable);
         //        }
 
+//        contadorB++
+//        if (contadorB == 4) {
+//            contadorB = 0;
+//        }
+
 
         switch (contadorB) {
-            case 5:
+            case 1:
+                contadorB++;
                 LED3 = 1;
                 buzzer(1800, 100);
                 __delay_ms(5000);
+                LED6 = 0;
+                LED5 = 0;
+                LED4 = 0;
+                LED3 = 0;
                 analogWrite(_PC2, 1);
                 contadorA = 1;
                 break;
-                //            case 2: analogWrite(_PC2, velocidad2);
-                //                contadorA++;
-                //                PORTB_WRITE = 0b00100000;
-                //                break;
+            case 2:
+                contadorB++;
+                LED2 = 1;
+                buzzer(1800, 100);
+                __delay_ms(5000);
+                LED2 = 0;
+                __delay_ms(5000);
+                LED6 = 0;
+                LED5 = 0;
+                LED4 = 0;
+                LED3 = 0;
+                analogWrite(_PC2, 1);
+                contadorA = 1;
+                break;
                 //            case 3: analogWrite(_PC2, velocidad3);
                 //                contadorA++;
                 //                PORTB_WRITE = 0b01000000;
