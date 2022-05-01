@@ -13,7 +13,8 @@ char b = 48;
 char c = 48;
 char d = 48;
 
-int contador = 1;
+int contadorA = 1;
+int contadorB = 5;
 
 int variable = 0;
 
@@ -115,6 +116,11 @@ void main() {
     system_inicializacion();
     serialinit();
 
+    TRISCbits.TRISC2 = 0; //RC2 como salida
+    
+    BUZZER_CONF = OUTPUT;
+    BUZZER_WRITE = 0;
+
     //    if (buttonA && buttonB) programa3();
     //    if (buttonA) programa1();
     //    if (buttonB) programa2();
@@ -174,25 +180,27 @@ void ONbuttonA_pressed() {
         //            variable += 15;
         //            analogWrite(_PC1, variable);
         //        }
-            switch (contador) {
-                case 1: analogWrite(_PC2, velocidad1);
-                    contador++;
-                    PORTB_WRITE = 0b00000001;
-                    break;
-                case 2: analogWrite(_PC2, velocidad2);
-                    contador++;
-                    PORTB_WRITE = 0b00000010;
-                    break;
-                case 3: analogWrite(_PC2, velocidad3);
-                    contador++;
-                    PORTB_WRITE = 0b00000100;
-                    break;
-                case 4: analogWrite(_PC2, 1);
-                    contador = 1;
-                    PORTB_WRITE = 0b00000000;
-                    break;
-            }
-        
+        switch (contadorA) {
+            case 1: analogWrite(_PC2, velocidad1);
+                contadorA++;
+                LED0 = 1;
+                break;
+            case 2: analogWrite(_PC2, velocidad2);
+                LED0 = 0;
+                contadorA++;
+                LED1 = 1;
+                break;
+            case 3: analogWrite(_PC2, velocidad3);
+                LED1 = 0;
+                contadorA++;
+                LED2 = 1;
+                break;
+            case 4: analogWrite(_PC2, 1);
+                LED2 = 0;
+                contadorA = 1;
+                break;
+        }
+
 
     }
 
@@ -233,8 +241,28 @@ void ONbuttonB_pressed() {
         //            variable -= 15;
         //            analogWrite(_PC1, variable);
         //        }
-        int velocidad2 = 190;
-        analogWrite(_PC2, velocidad2);
+
+
+        switch (contadorB) {
+            case 5:
+                PORTB_WRITE = 0b00010000;
+                __delay_ms(5000);
+                analogWrite(_PC2, 1);
+                contadorA = 1;
+                break;
+                //            case 2: analogWrite(_PC2, velocidad2);
+                //                contadorA++;
+                //                PORTB_WRITE = 0b00100000;
+                //                break;
+                //            case 3: analogWrite(_PC2, velocidad3);
+                //                contadorA++;
+                //                PORTB_WRITE = 0b01000000;
+                //                break;
+                //            case 4: analogWrite(_PC2, 1);
+                //                contadorA = 1;
+                //                PORTB_WRITE = 0b10000000;
+                //                break;
+        }
 
 
     }
