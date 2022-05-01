@@ -239,12 +239,12 @@ void PWMinit() {
 
 void analogWrite(char pin, int dutyc) {
     int dato = 1.96 * dutyc;
-    
+
     if (pin == _PC1) {
         CCPR1L = dato >> 2;
         CCP1CONbits.DC1B = dato & 0b11;
     }
-    
+
     if (pin == _PC2) {
         CCPR2L = dato >> 2;
         CCP2CONbits.DC2B = dato & 0b11;
