@@ -13,13 +13,12 @@ int contadorB = 1;
 void main() {
     system_inicializacion();
     serialinit();
-        
-        BUZZER_CONF = OUTPUT;
-        BUZZER_WRITE = 0;
 
-    if (buttonA);
-    if (buttonB);
+    //    BUZZER_CONF = OUTPUT;
+    //    BUZZER_WRITE = 0;
 
+            if (buttonA);
+        if (buttonB);
 
     while (1) {
 
@@ -46,21 +45,21 @@ void ONbuttonA_pressed() {
         buzzer(2000, 100);
 
         switch (contadorA) {
-            case 1: analogWrite(_PC1, velocidad1);
+            case 1: analogWrite(_PC2, velocidad1);
                 contadorA++;
                 LED6 = 1;
                 break;
-            case 2: analogWrite(_PC1, velocidad2);
+            case 2: analogWrite(_PC2, velocidad2);
                 LED6 = 0;
                 contadorA++;
                 LED5 = 1;
                 break;
-            case 3: analogWrite(_PC1, velocidad3);
+            case 3: analogWrite(_PC2, velocidad3);
                 LED5 = 0;
                 contadorA++;
                 LED4 = 1;
                 break;
-            case 4: analogWrite(_PC1, 1);
+            case 4: analogWrite(_PC2, 1);
                 LED4 = 0;
                 contadorA = 1;
                 LED5 = 0;
@@ -104,28 +103,28 @@ void ONbuttonB_pressed() {
         buttonBpressedcounter = 0;
         buttonBpressedcounter2 = 0;
 
-        switch (contadorB) {
-            case 1:
-                contadorB++;
-                LED3 = 1;
-                buzzer(1800, 100);
-                __delay_ms(5000);
-                LED3 = 0;
-                analogWrite(_PC2, 1);
-                contadorA = 1;
-                break;
-            case 2:
-                contadorB++;
-                LED2 = 1;
-                buzzer(1800, 100);
-                __delay_ms(5000);
-                LED2 = 0;
-                __delay_ms(5000);
-                LED3 = 0;
-                analogWrite(_PC2, 1);
-                contadorA = 1;
-                break;
-        }
+        //        switch (contadorB) {
+        //            case 1:
+        //                contadorB++;
+        //                LED3 = 1;
+        //                buzzer(1800, 100);
+        //                __delay_ms(5000);
+        //                LED3 = 0;
+        //                analogWrite(_PC2, 1);
+        //                contadorA = 1;
+        //                break;
+        //            case 2:
+        //                contadorB++;
+        //                LED2 = 1;
+        //                buzzer(1800, 100);
+        //                __delay_ms(5000);
+        //                LED2 = 0;
+        //                __delay_ms(5000);
+        //                LED3 = 0;
+        //                analogWrite(_PC2, 1);
+        //                contadorA = 1;
+        //                break;
+        //        }
 
 
     }
@@ -151,4 +150,32 @@ void ONbuttonB_pressed() {
 
 void every5ms() {
 
+    //    digitcounter++;
+    //    if (digitcounter == 1) {
+    //        LED3 = 1;
+    //        buzzer(1800, 100);
+    //    }
+    //    if (digitcounter == 1000) {
+    //        LED3 = 0;
+    //        LED6 = 0;
+    //        LED5 = 0;
+    //        LED4 = 0;
+    //        analogWrite(_PC2, 1);
+    //        contadorA = 1;
+    //    }
+    //    if (digitcounter == 3) {
+    //        digit1 = 0;
+    //        digit2 = 1;
+    //        digit0 = 0;
+    //        digit3 = 0;
+    //        PORTD_WRITE = numero[hunds];
+    //    }
+    //    if (digitcounter == 4) {
+    //        digit2 = 0;
+    //        digit3 = 1;
+    //        digit1 = 0;
+    //        digit0 = 0;
+    //        PORTD_WRITE = numero[thous];
+    //        digitcounter = 0;
+    //    }
 }
