@@ -177,15 +177,19 @@ void ONbuttonA_pressed() {
             switch (contador) {
                 case 1: analogWrite(_PC2, velocidad1);
                     contador++;
+                    PORTB_WRITE = 0b00000001;
                     break;
                 case 2: analogWrite(_PC2, velocidad2);
                     contador++;
+                    PORTB_WRITE = 0b00000010;
                     break;
                 case 3: analogWrite(_PC2, velocidad3);
                     contador++;
+                    PORTB_WRITE = 0b00000100;
                     break;
                 case 4: analogWrite(_PC2, 1);
                     contador = 1;
+                    PORTB_WRITE = 0b00000000;
                     break;
             }
         
