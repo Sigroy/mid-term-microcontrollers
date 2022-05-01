@@ -24,14 +24,13 @@
 #define botonReset PORTEbits.RE3
 
 // LEDS
-#define LED0 LATBbits.LATB0
-#define LED1 LATBbits.LATB1
-#define LED2 LATBbits.LATB2
-#define LED3 LATBbits.LATB3
-#define LED4 LATBbits.LATB4
-#define LED5 LATBbits.LATB5
-#define LED6 LATBbits.LATB6
-#define LED7 LATBbits.LATB7
+#define LED0 LATBbits.LATB7
+#define LED1 LATBbits.LATB6
+#define LED2 LATBbits.LATB5
+#define LED3 LATBbits.LATB4
+#define LED4 LATBbits.LATB2
+#define LED5 LATBbits.LATB1
+#define LED6 LATBbits.LATB0
 
 #define BUZZER_CONF TRISEbits.TRISE0
 #define BUZZER_WRITE LATEbits.LATE0
