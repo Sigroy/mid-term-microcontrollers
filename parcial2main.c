@@ -13,9 +13,9 @@ int contadorB = 1;
 void main() {
     system_inicializacion();
     serialinit();
-
-//    BUZZER_CONF = OUTPUT;
-//    BUZZER_WRITE = 0;
+        
+        BUZZER_CONF = OUTPUT;
+        BUZZER_WRITE = 0;
 
     if (buttonA);
     if (buttonB);
@@ -42,27 +42,29 @@ void ONbuttonA_pressed() {
         //your code here
         int velocidad1 = 100;
         int velocidad2 = 150;
-        int velocidad3 = 254;
+        int velocidad3 = 200;
         buzzer(2000, 100);
 
         switch (contadorA) {
-            case 1: analogWrite(_PC2, velocidad1);
+            case 1: analogWrite(_PC1, velocidad1);
                 contadorA++;
                 LED6 = 1;
                 break;
-            case 2: analogWrite(_PC2, velocidad2);
+            case 2: analogWrite(_PC1, velocidad2);
                 LED6 = 0;
                 contadorA++;
                 LED5 = 1;
                 break;
-            case 3: analogWrite(_PC2, velocidad3);
+            case 3: analogWrite(_PC1, velocidad3);
                 LED5 = 0;
                 contadorA++;
                 LED4 = 1;
                 break;
-            case 4: analogWrite(_PC2, 1);
+            case 4: analogWrite(_PC1, 1);
                 LED4 = 0;
                 contadorA = 1;
+                LED5 = 0;
+                LED6 = 0;
                 break;
         }
 
@@ -108,9 +110,6 @@ void ONbuttonB_pressed() {
                 LED3 = 1;
                 buzzer(1800, 100);
                 __delay_ms(5000);
-                LED6 = 0;
-                LED5 = 0;
-                LED4 = 0;
                 LED3 = 0;
                 analogWrite(_PC2, 1);
                 contadorA = 1;
@@ -122,9 +121,6 @@ void ONbuttonB_pressed() {
                 __delay_ms(5000);
                 LED2 = 0;
                 __delay_ms(5000);
-                LED6 = 0;
-                LED5 = 0;
-                LED4 = 0;
                 LED3 = 0;
                 analogWrite(_PC2, 1);
                 contadorA = 1;
