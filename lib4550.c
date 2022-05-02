@@ -18,6 +18,7 @@ void __interrupt() myint(void) {
     every5ms();
     ONbuttonA_pressed();
     ONbuttonB_pressed();
+//    ONbuttonB_pressed();
 
 
     INTCONbits.TMR0IF = 0; // Reseteamos la bandera de interrupción
